@@ -1,0 +1,14 @@
+.listItemContent {
+    border-bottom: solid 1px #8899A6;
+    width: 100%;
+    margin: auto;
+}
+
+.deleteButton {
+    cursor: pointer;
+    position: absolute;
+    color: #8899A6;
+    margin-top: -80px;
+    margin-left: 20px;
+    font-weight: 100;
+}

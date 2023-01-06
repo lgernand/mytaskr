@@ -1,0 +1,48 @@
+.NewListItem {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 0 -1px gray;
+}
+
+.NewListItem, input {
+    outline: none;
+    border: none;
+    margin-top: 0;
+    /*box-shadow: 0 2px 0 -1px gray;*/
+}
+
+
+.NewListItem, input, textarea {
+    background-color: #15202B;
+    color: white;
+}
+
+.NewListItem button {
+    cursor: pointer;
+    background-color: #15202B;
+    height: 50px;
+    color: white;
+    border: none;
+    border-left: solid 1px #8899A6;
+}
+
+.newItemTask {
+}
+
+.netItemTime {
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}

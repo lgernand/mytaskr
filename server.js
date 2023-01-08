@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'front-end', 'build')))
 
-const port = 3000;
+const port = 80;
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, 'front-end', 'build', 'index.html'))

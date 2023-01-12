@@ -1,6 +1,6 @@
 var secrets = require('./secrets')
 
-var mysql = require('mysql2');
+var mysql = require('mysql');
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -8,7 +8,12 @@ var con = mysql.createConnection({
   password: secrets.password
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+function getAllPosts() {
+  con.connect(function(err) {
+    if (err) throw err;
+      con.query("SELECT * FROM taskr_db.tasks", function (err, result, fields) {
+    if (err) throw err;
+    return result;
+    });
+  });
+}

@@ -1,7 +1,7 @@
 const todoList = [
     {
         id: 0,
-        task: "write a todo app as a fullstack node/react app",
+        task: "write a todo app as a fullstack node/react ap",
         estimatedTime: "TBD"
     },
     {

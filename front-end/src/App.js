@@ -2,15 +2,23 @@ import './App.css';
 import './listItem/ListItem';
 import './data/todolist';
 import ListItem from './listItem/ListItem';
-import todoList from './data/todolist';
+//import todoList from './data/todolist';
 import NewListItem from './listItem/NewListItem';
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
 
   const [newItem, setNewItem] = React.useState("");
   const [newTime, setNewTime] = React.useState("");
-  const [list, setList] = React.useState(todoList.reverse());
+  const [list, setList] = React.useState([]);
+
+  useEffect(() => {
+    axios('/posts')
+      .then(response => {
+        setList(response.data);
+      })
+  })
 
   function handleUpdateNewItem(event) {
     setNewItem(event.target.value);

@@ -16,32 +16,22 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, 'front-end', 'build', 'index.html'))
 });
 
-app.get("/posts", (req, res) => {
+app.get("/posts",async (req, res) => {
     
-    const todoList = [
-        {
-            id: 0,
-            task: "task1",
-            estimatedTime: 5
-        }, 
-        {
-            id: 1,
-            task: "task2",
-            estimatedTime: 6
-        },
-        {
-            id: 2,
-            task: "task3",
-            estimatedTime: 3
-        },
-        {
-            id: 3,
-            task: "task4",
-            estimatedTime: 7
-        }
-    ]
+        //{
+        //    id: 0,
+        //    task: "task1",
+        //   estimatedTime: 5
+        //}
 
-    console.log(todoList);
+    var todoList = [];
+
+    var posts = await db.getAllPosts();
+
+    for (var i = 0; i < posts.length; ++i)
+    {
+        todoList.push({ id: posts[i].TaskID, task: posts[i].Task, estimatedTime: posts[i].ETA})
+    }
 
     res.json(todoList);
 });

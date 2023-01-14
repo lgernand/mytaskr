@@ -21,7 +21,7 @@ app.get("/posts",async (req, res) => {
         //{
         //    id: 0,
         //    task: "task1",
-        //   estimatedTime: 5
+        //    estimatedTime: 5
         //}
 
     var todoList = [];

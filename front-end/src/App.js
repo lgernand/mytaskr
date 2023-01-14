@@ -18,7 +18,7 @@ function App() {
       .then(response => {
         setList(response.data);
       })
-  })
+  }, [])
 
   function handleUpdateNewItem(event) {
     setNewItem(event.target.value);

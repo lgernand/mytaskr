@@ -17,28 +17,32 @@ app.get('/', function(req, res) {
 });
 
 app.get("/posts", (req, res) => {
+    
     const todoList = [
         {
             id: 0,
-            task: "write a todo app as a fullstack node/react ap",
-            estimatedTime: "TBD"
-        },
+            task: "task1",
+            estimatedTime: 5
+        }, 
         {
             id: 1,
-            task: "figure out what database to use: postgresql or mongoDB?",
-            estimatedTime: "hopefully not too long"
+            task: "task2",
+            estimatedTime: 6
         },
         {
             id: 2,
-            task: "litter box",
-            estimatedTime: "5 minutes"
+            task: "task3",
+            estimatedTime: 3
         },
         {
             id: 3,
-            task: "get the css looking nice on here",
-            estimatedTime: "this will never be finishedasdasfd"
+            task: "task4",
+            estimatedTime: 7
         }
-    ];
+    ]
+
+    console.log(todoList);
+
     res.json(todoList);
 });
 

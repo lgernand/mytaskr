@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 const db = require('./modules/db_connection');
+const bodyparser = require('body-parser');
 
 const app = express();
 
+app.use(bodyparser.urlencoded({extended:false}));
+app.use(bodyparser.json());
 app.use(express.static(path.join(__dirname, 'front-end', 'build')))
 
 const port = 3000;
@@ -36,6 +39,12 @@ app.get("/posts",async (req, res) => {
     res.json(todoList);
 });
 
+app.post('/create_post', (req, res) => {
+    console.log(req.body);
+
+    db.postNewTask(req.body.task, req.body.estimatedTime);
+
+});
 
 app.listen(port, function() {
     console.log('server spinning on port ' + port);

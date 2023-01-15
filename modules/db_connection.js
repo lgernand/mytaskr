@@ -19,11 +19,22 @@ exports.getAllPosts = function() {
   return new Promise(function (resolve, reject) {
     con.connect(function(err) {
       if (err) throw err;
-      con.query("SELECT * FROM tasks", function (err, result, fields) {
+      con.query("SELECT * FROM tasks order by PostedDateTime desc", function (err, result, fields) {
         if (err) throw err;
-        console.log(result);
         resolve(result);
       });
     });
   })   
+}
+
+exports.postNewTask = function(task, estimatedTime) {
+  return new Promise(function (resolve, reject) {
+    con.connect(function(err) {
+      if (err) throw err;
+      con.query("INSERT INTO tasks (UserID, Task, ETA, Completed, CompletedDateTime) VALUES ( 1, '" + task + "', " + estimatedTime + ", 0, null)", function (err, result, fields) {
+        if (err) throw err;
+        resolve(result);
+      });
+    });
+  });
 }

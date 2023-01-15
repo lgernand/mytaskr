@@ -35,6 +35,13 @@ function App() {
     setList([{id: list.length, task: newItem, estimatedTime: newTime}, ...list]);
     setNewItem('');
     setNewTime('');
+
+    axios.post('/create_post', {
+      id: list.length,
+      task: newItem,
+      estimatedTime: newTime
+    });
+
   }
 
   function handleDeleteItem(event, key) {
